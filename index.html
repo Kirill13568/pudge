@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Пудж - Dota 2</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png" />
+</head>
+<body>
+  <header>
+    <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png" alt="Pudge" class="pudge-icon" />
+    <h1>Пудж - М'ясник з Dota 2</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#history" class="menu-btn">Історія</a></li>
+      <li><a href="#friends" class="menu-btn">Друзі</a></li>
+      <li><a href="#gallery" class="menu-btn">Галерея</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="history">
+      <h2>Історія</h2>
+      <p>
+        У темних трясовинах Забутого Некровалю Пудж починав як скромний м’ясник, що чистив поля битв від тіл загиблих.
+        Але з часом його роль переросла в одержимість: він не просто знищував тіла, а насолоджувався процесом. Його гак
+        рвав плоть з майстерністю, яку можна назвати мистецтвом. Його запах смерті і гнилі розходиться по всій долині,
+        і навіть мертві тіла бояться бути знайденими ним. Тепер Пудж — ходячий кошмар, що живе лише для нового шматка м’яса.
+      </p>
+    </section>
+
+    <section id="friends">
+      <h2>Друзі</h2>
+      <div class="friends-gallery">
+        <div class="friend" data-name="Drow Ranger">
+          <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/drow_ranger.png" alt="Drow Ranger" />
+          <p>Drow Ranger</p>
+        </div>
+        <div class="friend" data-name="Slark">
+          <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/slark.png" alt="Slark" />
+          <p>Slark</p>
+        </div>
+        <div class="friend" data-name="Lich">
+          <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lich.png" alt="Lich" />
+          <p>Lich</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <h2>Галерея</h2>
+      <div class="image-grid">
+        <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png" alt="Pudge" />
+        <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pudge_meat_hook.png" alt="Hook" />
+        <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pudge_rot.png" alt="Rot" />
+        <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pudge_dismember.png" alt="Dismember" />
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Пудж і його друзі з Dota 2</p>
+  </footer>
+
+  <script>
+    // Анімація кнопок меню
+    document.querySelectorAll(".menu-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        btn.classList.add("clicked");
+        setTimeout(() => {
+          btn.classList.remove("clicked");
+        }, 300);
+      });
+    });
+
+    // Грейскейл здібностей при кліку + перехід
+    const abilityLinks = {
+      "pudge_meat_hook.png": "https://dota2.fandom.com/wiki/Pudge#Meat_Hook",
+      "pudge_rot.png": "https://dota2.fandom.com/wiki/Pudge#Rot",
+      "pudge_dismember.png": "https://dota2.fandom.com/wiki/Pudge#Dismember"
+    };
+
+    document.querySelectorAll(".image-grid img").forEach(img => {
+      img.addEventListener("click", () => {
+        const src = img.getAttribute("src").split("/").pop();
+        if (abilityLinks[src]) {
+          img.style.filter = "grayscale(100%)";
+          window.open(abilityLinks[src], "_blank");
+        }
+      });
+    });
+
+    // Друзі — перехід на wiki та сірий ефект
+    const friendLinks = {
+      "Drow Ranger": "https://dota2.fandom.com/wiki/Drow_Ranger",
+      "Slark": "https://dota2.fandom.com/wiki/Slark",
+      "Lich": "https://dota2.fandom.com/wiki/Lich"
+    };
+
+    document.querySelectorAll(".friend").forEach(friend => {
+      friend.addEventListener("click", () => {
+        const name = friend.dataset.name;
+        const img = friend.querySelector("img");
+        img.style.filter = "grayscale(100%)";
+        if (friendLinks[name]) {
+          window.open(friendLinks[name], "_blank");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
