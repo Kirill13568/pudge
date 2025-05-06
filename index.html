@@ -23,13 +23,18 @@
 
   <main>
     <section id="history">
-      <h2>Історія</h2>
-      <p>
-        У темних трясовинах Забутого Некровалю Пудж починав як скромний м’ясник, що чистив поля битв від тіл загиблих.
-        Але з часом його роль переросла в одержимість: він не просто знищував тіла, а насолоджувався процесом. Його гак
-        рвав плоть з майстерністю, яку можна назвати мистецтвом. Його запах смерті і гнилі розходиться по всій долині,
-        і навіть мертві тіла бояться бути знайденими ним. Тепер Пудж — ходячий кошмар, що живе лише для нового шматка м’яса.
-      </p>
+  <h2>Історія</h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+    <p style="flex: 1;">
+      У темних трясовинах Забутого Некровалю Пудж починав як скромний м’ясник, що чистив поля битв від тіл загиблих.
+      Але з часом його роль переросла в одержимість: він не просто знищував тіла, а насолоджувався процесом. Його гак
+      рвав плоть з майстерністю, яку можна назвати мистецтвом. Його запах смерті і гнилі розходиться по всій долині,
+      і навіть мертві тіла бояться бути знайденими ним. Тепер Пудж — ходячий кошмар, що живе лише для нового шматка м’яса.
+    </p>
+    <img src="images/pudge_forest.png" alt="Pudge у туманному лісі" style="max-width: 250px; border-radius: 10
+
+             style="max-width: 400px; border-radius: 10px; border: 2px solid #333; />
+      </div>
     </section>
 
     <section id="friends">
@@ -66,7 +71,6 @@
   </footer>
 
   <script>
-    // Анімація кнопок меню
     document.querySelectorAll(".menu-btn").forEach(btn => {
       btn.addEventListener("click", () => {
         btn.classList.add("clicked");
@@ -76,7 +80,6 @@
       });
     });
 
-    // Грейскейл здібностей при кліку + перехід
     const abilityLinks = {
       "pudge_meat_hook.png": "https://dota2.fandom.com/wiki/Pudge#Meat_Hook",
       "pudge_rot.png": "https://dota2.fandom.com/wiki/Pudge#Rot",
@@ -93,7 +96,6 @@
       });
     });
 
-    // Друзі — перехід на wiki та сірий ефект
     const friendLinks = {
       "Drow Ranger": "https://dota2.fandom.com/wiki/Drow_Ranger",
       "Slark": "https://dota2.fandom.com/wiki/Slark",
